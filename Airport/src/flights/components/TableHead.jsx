@@ -2,8 +2,8 @@ import React from "react";
 
 const TableHead = () => {
     return (
-        <thead>
-            <tr className="information-container_head">
+        <thead className="information-container_head">
+            <tr className="information-container_tr">
                 <th className="information-container terminal">Terminal</th>
                 <th className="information-container local-time">Local time</th>
                 <th className="information-container destination">Destination</th>

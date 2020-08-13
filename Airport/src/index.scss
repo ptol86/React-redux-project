@@ -1,3 +1,5 @@
+@import "media.scss";
+
 * {
   box-sizing: border-box;
 }
@@ -27,37 +29,42 @@ body {
 
 
 .search-flights {
-  display: block;
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
   font-family: Open Sans, sans-serif;
   position: relative;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  // line-height: 1.5;
+  
 
   &__title {
-    height: 80px;
-    font-size: 80px;
-    line-height: 80px;
-    font-weight: 300;
+    height: 10%;
+    font-size: 6rem;
+    line-height: 10%;
+    font-weight: 200;
     margin-left: 0px;
     padding: 0;
     border: 0;
     vertical-align: baseline;
     color: #000;
+    text-align: center;
     background-color: transparent;
   }
   &__form {
-    margin: 0;
-    padding: 0;
+    width: 60%;
     border: 0;
     font-size: 100%;
     font: inherit;
-    vertical-align: baseline;
     display: inline-flex;
+    position: relative;
+    margin: auto;
+    
+    
   }
   &__input {
-    height: 80px;
+    height: 5rem;
     font-size: 24px;
     border: none;
     padding-left: 70px;
@@ -65,12 +72,12 @@ body {
     display: block;
     border: none;
     width: 100%;
-    
+    outline: none;
     
   }
   &__btn {
-    height: 80px;
-    width: 200px;
+    height: 5rem;
+    width: 30%;
     font-size: 26px;
     background: #1eb7ee;
     color: #fff;
@@ -78,46 +85,160 @@ body {
     border-radius: 0 80px 0 0;
     text-align: left;
     border: none;
+    outline: none;
   }
-  
+  &__btn:hover { 
+    animation: moving .3s  ease-in-out;
+    animation-fill-mode: forwards;
+    
+  }
+
+  @keyframes moving {
+    0% {
+      border-radius: 0 80px 0 0;
+    }
+    15% {
+      border-radius: 0 70px 0 0;
+    }
+    25% {
+      border-radius: 0 60px 0 0;
+    }
+    50% {
+      border-radius: 0 50px 0 0;
+    }
+    75% {
+      border-radius: 0 40px 0 0;
+    }
+    100% {
+      border-radius: 0 30px 0 0;
+    }
+    
+  }
 }
 .container {
   display: inline-flex;
 }
-
+.nav-container {
+  margin-top: 50px;
+  margin: 50px auto;
+  background:#73d2f0;
+  width: 90%;
+  border-radius: 60px 60px 0 0;
+  
+}
 .nav-item {
+
+    display: inline-flex;
+    justify-content: center;
+    text-decoration: none;
     flex: 1 1 auto;
     text-transform: uppercase;
     padding: 0;
     border: 0;
     position: relative;
-    font-weight: 600;
+    font-weight: 2.5rem;
     border-radius: 60px 60px 0 0;
     outline: none;
-    background: #73d2f0;
+    background:#73d2f0;
+    color: #fff;
     overflow: hidden;
     outline: none;
     padding: 0;
     border: 0;
-    font-size: 24px;
-    line-height: 60px;
-    min-width: 500px;
+    font-size: 1.5rem;
+    line-height: 5rem;
+    width: 50%;
+    height: 5rem;
+    cursor: pointer;
+    
+    &__selected {
+      background: #fff;
+      color:#73d2f0;
+      
+    }
+}
+.company-name {
+  line-height: 5rem;
 }
 .nav-tabs {
   padding: 0px;
 }
-.table {
-  display: flex;
-  flex-direction: column;
-  border-collapse: collapse;
+.plane {
+  margin-right: 10px;
   
 }
-.information-container {
-  text-align: center;
-  width: 166px;
-  background-color: white;
-  height: 91px;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+} 
+.information-container_tr {
+  line-height: 5rem;
 }
-.information-container_head {
-  height: 48px;
+.information-container_body {
+  line-height: 5rem;
+  text-align: center;
+  &:hover {
+    box-shadow: 0 5px 10px rgba(37, 40, 41, 0.3);
+  }
+  &:nth-child(odd) {
+    background-color: rgba(0,102,135,.1)
+  }
+}
+.logo {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty-result {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  line-height: 20rem;
+  background-color: white;
+  font-size: 2rem;
+}
+.company-name__logo {
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+.term {
+  font-size: 26px;
+  line-height: 21px;
+  padding: 20px;
+  display: inline-flex;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 60px;
+  &__A {
+    color: green;
+    border: 1px solid green;
+  }
+  &__D {
+    color: hsl(194, 79%, 64%);
+    border: 1px solid hsl(194, 79%, 64%);
+  }
+  &__C {
+    color: hsl(44, 81%, 61%);
+    border: 1px solid hsl(44, 81%, 61%);;
+  }
+}
+@keyframes rotate {
+  from {
+      transform: rotate(0);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+.spinner {
+  display: block;
+  margin: auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 4px solid black;
+  border-bottom-color: transparent;
+  animation: rotate 1s linear infinite;
 }

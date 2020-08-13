@@ -1,8 +1,14 @@
 import * as fligthsGateway from './flights.gateway';
 // import { tasksListSelector } from './flights.selectors';
 
-
+export const SHOW_SPINNER = "SHOW_SPINNER";
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST_RECIEVED';
+
+export const showSpinner = () => {
+  return {
+      type: SHOW_SPINNER,
+  }
+}
 
 export const flightsListRecieved = (flightsList) => {
   const action = {
@@ -16,6 +22,7 @@ export const flightsListRecieved = (flightsList) => {
 
 export const getFlightsList = () => {
   const thunkAction = function (dispatch) {
+    dispatch(showSpinner())
     fligthsGateway
     .fetchFlightsList()
     .then(flightsList => dispatch(flightsListRecieved(flightsList)))
