@@ -4,47 +4,60 @@ import qs from "qs";
 
 const SearchForm = () => {
 
-    const [input, setInput] = useState("");
-    
+    const [value, setValue] = useState("");
+
     const history = useHistory();
-    
-    
+
+    const handleClick = () => {
+        history.push({
+            ...history,
+            search: value,
+        })
+    }
+
     return (
         <>
         <h2 className="search-flights__title">SEARCH FLIGHT</h2>
-        <form className="search-flights__form" onSubmit={(e) => {
-            e.preventDefault();
-           
-            return history.push({
-                ...history,
-                pathname: history.location.pathname,
-                search: qs.stringify({search: input}),
-            });
-        }}>
+        <div className="search-flights__form">
             <i className='fa fa-search' ></i>
             <input 
                 className="search-flights__input" 
                 name="search" 
                 type="text" 
                 placeholder="Airline, destination or fligth #"
-                value={input}
-                onChange={({target}) => setInput(target.value)}
+                value={value}
+                onChange={({target}) => setValue(target.value)}
             />
-            <button className="search-flights__btn" >SEARCH</button>
-        </form>
+            <button className="search-flights__btn" onClick={handleClick}>SEARCH</button>
+        </div>
         </>
     )
+//     const  { search }  = useLocation();
 
-    return (
-        <>
-            <h2 className="search-flights__title">SEARCH FLIGHT</h2>
-            <form className="search-flights__form">
-                    <i className='fa fa-search' ></i>
-                    <input className="search-flights__input" name='search' type="text" placeholder="Airline, destination or fligth #"/>
-                    <button className="search-flights__btn">SEARCH</button>
-            </form>
-        </>
-    )
+//     const filterText = qs.parse(search, { ignoreQueryPrefix: true }).search;
+
+//     const [value, setValue] = useState(filterText);
+   
+//     return (
+//         <>
+//             <h2 className="search-flights__title">SEARCH FLIGHT</h2>
+//             <div className="search-flights__form" >
+//                 <i className='fa fa-search' ></i>
+
+//                 <input 
+//                     className="search-flights__input"
+//                     value={value}
+//                     onChange={()=> setValue(event.target.value)}
+//                     name='search'
+//                     type="text" 
+//                     placeholder="Airline, destination or fligth #" 
+//                 />
+//                 <button 
+//                 className="search-flights__btn" 
+//                 >SEARCH</button>
+//             </div>
+//         </>
+//     )
 }
 
 export default SearchForm;

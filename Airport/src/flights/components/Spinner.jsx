@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Spinner = (props) => {
-    return (<span className="spinner" >Login</span>);
+const Spinner = () => {
+    return (<span className="spinner" ></span>);
 }
 
 export default Spinner;

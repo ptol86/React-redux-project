@@ -3,6 +3,9 @@
 export const flightsListSelector = state => 
   state.flights.flightsList.body;
 
+export const spinnerSelector = state => 
+  state.flights.isFetching;
+
 // export const sortedTasksListSelector = createSelector(
 //   [tasksListSelector],
 //   (tasksList) => {
