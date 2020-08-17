@@ -1,15 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
-
 module.exports = (env, argv) => {
     const isProduction = argv.mode === "production";
     const config = {
         entry: "./src/index.jsx",
         output: {
-            path: `${__dirname}/build`,
+            path: __dirname + '/build',
             filename: "bundle.js",
             publicPath: '/',
         },
@@ -46,6 +45,7 @@ module.exports = (env, argv) => {
         },
         devServer: {
             hot: true,
+            port: 8080,
             historyApiFallback: true,
         }
     };
