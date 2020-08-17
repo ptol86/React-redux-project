@@ -86,41 +86,20 @@ body {
     text-align: left;
     border: none;
     outline: none;
+    transition: .3s ease-in;
   }
   &__btn:hover { 
-    animation: moving .3s  ease-in-out;
-    animation-fill-mode: forwards;
+    border-radius: 0 30px 0 0;
     
   }
-
-  @keyframes moving {
-    0% {
-      border-radius: 0 80px 0 0;
-    }
-    15% {
-      border-radius: 0 70px 0 0;
-    }
-    25% {
-      border-radius: 0 60px 0 0;
-    }
-    50% {
-      border-radius: 0 50px 0 0;
-    }
-    75% {
-      border-radius: 0 40px 0 0;
-    }
-    100% {
-      border-radius: 0 30px 0 0;
-    }
-    
-  }
+  
 }
 .container {
   display: inline-flex;
 }
 .nav-container {
   margin-top: 50px;
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
   background:#73d2f0;
   width: 90%;
   border-radius: 60px 60px 0 0;
@@ -201,6 +180,10 @@ body {
 .company-name__logo {
   height: 2.5rem;
   margin-right: 0.5rem;
+}
+.flights {
+  width: 90%;
+  margin: auto;
 }
 
 .term {

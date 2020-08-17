@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useParams, useLocation } from "react-router-dom";
-import qs from "qs";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const SearchForm = () => {
 
-    const [value, setValue] = useState("");
+    const [searchValue, setSearchValue] = useState("");
 
     const history = useHistory();
 
-    const handleClick = () => {
+    const handleSearch = () => {
         history.push({
             ...history,
-            search: value,
+            search: `search=${searchValue}`,
         })
     }
 
@@ -25,39 +24,14 @@ const SearchForm = () => {
                 name="search" 
                 type="text" 
                 placeholder="Airline, destination or fligth #"
-                value={value}
-                onChange={({target}) => setValue(target.value)}
+                value={searchValue}
+                onChange={({target}) => setSearchValue(target.value)}
             />
-            <button className="search-flights__btn" onClick={handleClick}>SEARCH</button>
+            <button className="search-flights__btn" onClick={handleSearch}>SEARCH</button>
         </div>
         </>
     )
-//     const  { search }  = useLocation();
-
-//     const filterText = qs.parse(search, { ignoreQueryPrefix: true }).search;
-
-//     const [value, setValue] = useState(filterText);
-   
-//     return (
-//         <>
-//             <h2 className="search-flights__title">SEARCH FLIGHT</h2>
-//             <div className="search-flights__form" >
-//                 <i className='fa fa-search' ></i>
-
-//                 <input 
-//                     className="search-flights__input"
-//                     value={value}
-//                     onChange={()=> setValue(event.target.value)}
-//                     name='search'
-//                     type="text" 
-//                     placeholder="Airline, destination or fligth #" 
-//                 />
-//                 <button 
-//                 className="search-flights__btn" 
-//                 >SEARCH</button>
-//             </div>
-//         </>
-//     )
+    
 }
 
 export default SearchForm;
