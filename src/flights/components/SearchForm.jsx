@@ -16,8 +16,9 @@ const SearchForm = () => {
 
     return (
         <>
-        <h2 className="search-flights__title">SEARCH FLIGHT</h2>
         <div className="search-flights__form">
+            <h2 className="search-flights__title">SEARCH FLIGHT</h2>
+            <div className="wrapper">
             <i className='fa fa-search' ></i>
             <input 
                 className="search-flights__input" 
@@ -27,7 +28,12 @@ const SearchForm = () => {
                 value={searchValue}
                 onChange={({target}) => setSearchValue(target.value)}
             />
-            <button className="search-flights__btn" onClick={handleSearch}>SEARCH</button>
+            <button className="search-flights__btn" onClick={handleSearch}>
+            <span className="search-flights__text">
+                SEARCH
+            </span>
+            </button>
+            </div>
         </div>
         </>
     )

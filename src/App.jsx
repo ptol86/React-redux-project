@@ -8,7 +8,7 @@ import Navigation from './flights/components/Navigation';
 
 const App = () => {
   return (
-    <div className='search-flights'>
+    <div className="container">
       <Provider store={store}>
         <Router>
             <SearchForm />
