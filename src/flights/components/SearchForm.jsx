@@ -29,9 +29,9 @@ const SearchForm = () => {
                 onChange={({target}) => setSearchValue(target.value)}
             />
             <button className="search-flights__btn" onClick={handleSearch}>
-            <span className="search-flights__text">
-                SEARCH
-            </span>
+                <span className="search-flights__text">
+                    SEARCH
+                </span>
             </button>
             </div>
         </div>
