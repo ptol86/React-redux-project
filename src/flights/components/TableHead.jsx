@@ -11,10 +11,10 @@ const TableHead = () => {
                 Local time
                 </span>
                 </th>
-                <th className="information-container destination">Destination</th>
-                <th className="information-container status">Status</th>
-                <th className="information-container airline">Airline</th>
-                <th className="information-container flight">Flight</th>
+                <th className="information-container ">Destination</th>
+                <th className="information-container ">Status</th>
+                <th className="information-container ">Airline</th>
+                <th className="information-container ">Flight</th>
             </tr>
         </thead>
     )
