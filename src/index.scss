@@ -181,9 +181,10 @@ body {
   padding: 0 2px;
 }
 .logo {
+  height: 100%;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .local-time-th {
   min-width: 90px;
@@ -199,6 +200,7 @@ body {
 
 .company-name__logo {
   height: 2.5rem;
+  padding-right: .3rem;
 }
 
 .flights {
