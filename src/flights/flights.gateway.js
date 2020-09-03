@@ -1,18 +1,7 @@
-const baseUrl = 'https://api.iev.aero/api/flights/10-02-2020';
+import moment from "moment";
 
-// export const createTask = taskData => {
-//     return fetch(baseUrl, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json;utc-8'
-//       },
-//       body: JSON.stringify(taskData),
-//   }).then(response => {
-//       if (!response.ok) {
-//         throw new Error('Failed to create task'); 
-//       }
-//   });
-// }
+const baseUrl = `https://api.iev.aero/api/flights/${moment().format("DD-MM-YYYY")}`;
+
 
 export const fetchFlightsList = () => {
   return fetch(baseUrl)
@@ -24,27 +13,3 @@ export const fetchFlightsList = () => {
     });
 };
 
-
-// export const updateTask = (taskId, taskData) => {
-//       return fetch(`${baseUrl}/${taskId}`, {
-//         method: 'PUT',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(taskData),
-//       }).then(response => {
-//           if (!response.ok) {
-//             throw new Error('Failed to update task');
-//           }
-//       }); 
-// };
-
-// export const deleteTask = taskId => {
-//     return fetch(`${baseUrl}/${taskId}`, {
-//           method: 'DELETE'
-//         }).then(response => {
-//           if (!response.ok) {
-//             throw new Error('Failed to delete task');
-//           }
-//     });
-// }
